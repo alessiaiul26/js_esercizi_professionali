@@ -3,6 +3,7 @@
    Descrizione: Automazione preventivi tramite Classi e Metodi d'Istanza.
    Concetti: Class, Constructor, This, Method Chaining.
    ========================================================================== */
+   //ES1
 class Progetto {
     constructor(nomeCliente, tipoServizio, prezzoBase) {
         this.nomeCliente = nomeCliente;
@@ -32,6 +33,7 @@ console.log(progetto1.riepilogoCompleto());
 console.log(progetto2.riepilogoCompleto());
 console.log(progetto3.riepilogoCompleto());
 
+//ES 2
 class Utente {
     constructor(username="Gigi12", email="gigi@email.it", ruolo="Grafico"){
         this.username = username;
@@ -56,6 +58,7 @@ let utente1 = new Utente("Alessia", "alessia@libero.it", "Admin")
 console.log(utente1.cambiaruolo("Super-Admin"));
 console.log(utente1.verificaEmail());
 
+//ES 3
 class Articolo {
     constructor(nome, prezzi, quantita){
         this.nome= nome;
@@ -77,3 +80,28 @@ class Articolo {
  let mioTelefono = new Articolo("Iphone", 1500, 27);
  mioTelefono.vendi(5);
  mioTelefono.vendi(30);
+
+ //ES4
+ class Prenotazione {
+    constructor(cliente, ora, conferma= false){
+    this.cliente = cliente;
+    this.ora = ora; 
+    this.conferma = conferma;
+    }
+    accetta(){
+        this.conferma = true;
+        console.log(`Appuntamento di ${this.cliente} confermato`)
+    }
+    stato(){
+        if(this.conferma === true){
+            console.log(`Prenotazione confermata per ${this.cliente} alle ${this.ora}`)
+        }
+        else{
+            console.log(`In attesa di conferma per ${this.cliente}`)
+        }
+    }
+ }
+ let prenotazione1 = new Prenotazione("Gianni", "18.30");
+ prenotazione1.stato();
+ prenotazione1.accetta();
+ prenotazione1.stato();
