@@ -75,3 +75,12 @@ let collaboratore = {
 };
 
 console.log(collaboratore.presentazione());
+
+
+
+
+
+
+
+
+
