@@ -57,11 +57,12 @@ console.log(utente1.cambiaruolo("Super-Admin"));
 console.log(utente1.verificaEmail());
 
 class Articolo {
-    constructor(nome="Iphone", prezzi=500, quantita=26){
+    constructor(nome, prezzi, quantita){
         this.nome= nome;
         this.prezzi= prezzi;
         this.quantita=quantita;
     }
+    //metodo
     vendi(unita){
         this.quantita = this.quantita - unita;
         if(this.quantita <= 0){
@@ -72,6 +73,7 @@ class Articolo {
         }
     }
 }
- let mioTelefono = new Articolo();
+//istanze
+ let mioTelefono = new Articolo("Iphone", 1500, 27);
  mioTelefono.vendi(5);
  mioTelefono.vendi(30);
