@@ -105,3 +105,28 @@ class Articolo {
  prenotazione1.stato();
  prenotazione1.accetta();
  prenotazione1.stato();
+
+ //ES 5
+class Spedizione{
+    constructor(prodotto, prezzoArticolo, distanzaKm, stato = "In preparazione"){
+        this.prodotto = prodotto;
+        this.prezzoArticolo = prezzoArticolo;
+        this.distanzaKm = distanzaKm;
+        this.stato = stato
+    }
+    calcolaCosto(){
+       return this.prezzoArticolo + (this.distanzaKm * 0.5);
+    }
+    inviato(){
+     this.stato = "Spedito";
+
+    }
+    info(){
+        console.log(`Pacco:${this.prodotto} | Stato:${this.stato} | Totale da pagare:${this.calcolaCosto()}€`)
+    }
+}
+
+let spedizione1 = new Spedizione("Monitor", 200, 100)
+spedizione1.info();
+spedizione1.inviato();
+spedizione1.info();
