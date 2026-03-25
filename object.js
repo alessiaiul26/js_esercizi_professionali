@@ -4,11 +4,10 @@ Alessia Iulianetti
 ==========================================================================
 */
 
-/**
- * ESERCIZIO 1: E-COMMERCE PREMIUM FILTER
+/* -------------------------------------------------------------------------- */
+/* ESERCIZIO 1: E-COMMERCE PREMIUM FILTER
  * Obiettivo: Estrarre e sommare dati da un listino prezzi (Object to Array).
- */
-// ES 1
+/* -------------------------------------------------------------------------- */
 let catalogo = {
   scarpe: 120,
   maglia: 30,
@@ -37,11 +36,11 @@ console.log(`Numero totale di tipologie prodotti: ${numeroProdotti}`);
 // 4. Somma dei valori (Quanto valgono?)
 let valoreTotale = Object.values(catalogo).reduce((acc, curr) => acc + curr, 0);
 console.log(`Valore totale della merce in magazzino: ${valoreTotale}€`);
-/**
- * ESERCIZIO 2: USER PERMISSIONS CONTROL
- * Obiettivo: Gestione ruoli e autorizzazioni admin.
- */
-//ES 2
+/* -------------------------------------------------------------------------- */
+/* ESERCIZIO 2: USER PERMISSIONS CONTROL
+* Obiettivo: Gestione ruoli e autorizzazioni admin.
+*/
+/* -------------------------------------------------------------------------- */
 let utenti = {
   admin: true,
   marco: false,
@@ -57,5 +56,22 @@ let utenti = {
  }
  let contaNomi = Object.keys(utenti).length;
  console.log(`il totale degli utenti è`, contaNomi)
+/* -------------------------------------------------------------------------- */
+/* ESERCIZIO 3: PAYROLL SYSTEM (Il potere del THIS)                           */
+/* Descrizione: Calcolo dinamico dello stipendio tramite metodi interni.      */
+/* -------------------------------------------------------------------------- */
+let collaboratore = {
+  nome: "Luca",
+  oreLavorate: 40,
+  tariffaOraria: 9,
 
+  calcoloStipendio: function(){
+    return this.oreLavorate * this.tariffaOraria
 
+  },
+  presentazione: function(){
+    return `Ciao sono ${this.nome} e questo mese ho guadagnato ${this.calcoloStipendio()}€`
+  }
+};
+
+console.log(collaboratore.presentazione());
