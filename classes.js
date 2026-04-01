@@ -130,3 +130,48 @@ let spedizione1 = new Spedizione("Monitor", 200, 100)
 spedizione1.info();
 spedizione1.inviato();
 spedizione1.info();
+
+//ES 6
+
+/* -------------------------------------------------------------------------- */
+/* ESERCIZIO 6: CINEMA BOOKING (Gestione Sala)                                */
+/* -------------------------------------------------------------------------- */
+
+class Cinema {
+    constructor(film, prezzoBiglietto, postiTotali, postiOccupati = 0) {
+        this.film = film;
+        this.prezzoBiglietto = prezzoBiglietto;
+        this.postiTotali = postiTotali;
+        this.postiOccupati = postiOccupati;
+    }
+
+    prenota(numeroPosti) {
+        // Calcoliamo quanti ne rimangono
+        let postiRimanenti = this.postiTotali - this.postiOccupati;
+
+        if (numeroPosti <= postiRimanenti) {
+            this.postiOccupati += numeroPosti; 
+            console.log(`✅ Prenotazione effettuata per ${this.film}: ${numeroPosti} posti.`);
+        } else {
+            console.log(`❌ Posti insufficienti per ${this.film}. Rimasti: ${postiRimanenti}`);
+        }
+    }
+
+    incassoTotale() {
+        return this.prezzoBiglietto * this.postiOccupati;
+    }
+
+    statoSala() {
+        let liberi = this.postiTotali - this.postiOccupati;
+        console.log(`Film: ${this.film} | Liberi: ${liberi} | Incasso: ${this.incassoTotale()}€`);
+    }
+}
+
+// --- TEST ---
+let cinema1 = new Cinema("Inception", 10, 50);
+
+cinema1.prenota(10); // Ne prende 10
+cinema1.prenota(45);
+cinema1.statoSala(); // Mostra il riepilogo finale
+
+
